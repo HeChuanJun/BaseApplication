@@ -15,7 +15,6 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
  */
 public class BackActivity extends SwipeBackActivity {
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
