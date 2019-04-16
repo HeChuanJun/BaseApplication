@@ -53,6 +53,7 @@ dependencies {
     implementation 'jp.wasabeef:blurry:2.1.1'
     implementation 'com.blankj:utilcode:1.18.2'
     implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0'
     // 内存泄漏检测
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'

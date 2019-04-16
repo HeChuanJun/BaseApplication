@@ -1,4 +1,4 @@
-package com.hcj.baseapplication;
+package com.hcj.baseapplication.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
 import com.gyf.barlibrary.ImmersionBar;
+import com.hcj.baseapplication.R;
 import com.hcj.baseapplication.adapter.HomeFragmentAdapter;
 import com.hcj.baseapplication.base.BaseActivity;
 import com.hcj.baseapplication.fragment.CategoryOneFragment;
@@ -87,7 +88,6 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                //ViewPager和BottomNaviationView联动,当ViewPager的某个页面被选中了,同时设置BottomNaviationView对应的tab按钮被选中
                 switch (position) {
                     case 0:
                         navigation.setSelectedItemId(R.id.navigation_home);

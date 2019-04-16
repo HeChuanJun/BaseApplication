@@ -2,9 +2,11 @@ package com.hcj.baseapplication.fragment;
 
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.gyf.barlibrary.ImmersionBar;
 import com.hcj.baseapplication.R;
+import com.hcj.baseapplication.activity.MainPageActivity;
 import com.hcj.baseapplication.base.BaseFragment;
 import com.hcj.baseapplication.base.BaseLazyFragment;
 
@@ -42,6 +44,7 @@ public class CategoryOneFragment extends BaseLazyFragment {
 
     @OnClick(R.id.tv_pay)
     public void onViewClicked() {
+        ActivityUtils.startActivity(MainPageActivity.class);
         ToastUtils.showShort(" 支付宝支付");
     }
 }

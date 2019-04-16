@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.hcj.baseapplication.R;
+import com.hcj.baseapplication.utils.AppManager;
 
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
@@ -26,8 +27,15 @@ public class BackActivity extends SwipeBackActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        AppManager.getAppManager().addActivity(this);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ImmersionBar.with(this).destroy();
+        AppManager.getAppManager().addActivity(this);
     }
 }

@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.hcj.baseapplication.R;
+import com.hcj.baseapplication.utils.AppManager;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -48,12 +49,19 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        AppManager.getAppManager().addActivity(this);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         mInputMethodManager = null;
         if (isImmersionBarEnabled()) {
             ImmersionBar.with(this).destroy();
         }
+        AppManager.getAppManager().clearActivity(getClass());
         if (hasBindEventBus()) {
             EventBus.getDefault().unregister(this);
         }
