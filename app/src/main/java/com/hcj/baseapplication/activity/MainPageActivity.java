@@ -1,5 +1,6 @@
 package com.hcj.baseapplication.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageNavigationView;
+import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
+import me.majiajie.pagerbottomtabstrip.item.NormalItemView;
 
 public class MainPageActivity extends BaseActivity {
 
@@ -77,12 +80,20 @@ public class MainPageActivity extends BaseActivity {
         viewPage.setAdapter(adapter);
         viewPage.setOffscreenPageLimit(3);
         mNavigationController.setupWithViewPager(viewPage);
+
+        //设置消息数
+        mNavigationController.setMessageNumber(1, 199);
+
+        //设置显示小圆点
+        mNavigationController.setHasMessage(0, true);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    //创建一个Item
+    private BaseTabItem newItem(int drawable, int checkedDrawable, String text) {
+        NormalItemView normalItemView = new NormalItemView(this);
+        normalItemView.initialize(drawable, checkedDrawable, text);
+        normalItemView.setTextDefaultColor(Color.GRAY);
+        normalItemView.setTextCheckedColor(0xFF009688);
+        return normalItemView;
     }
 }
